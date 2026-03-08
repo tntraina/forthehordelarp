@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BidCom Character - Gaming Head</title>
+</head>
+<body>
+<h1>Terry and Taylor Parker - Gaming Division Co-Heads</h1>
+<hr>
+
+{% if 26001 in game_events %}
+<p> Galaxy Brain Games is a large gaming company that hosts a series of urban fantasy & horror larps. 
+    They want to premiere their new line of sourcebooks, Jiangshi: The Chipper, with an inaugural larp at WMC. 
+    Since the materials haven't been published yet, there's no way of knowing what sort of cotnent the game will have. Except that apparently it involves Jiangshis (chinese hopping vampires).
+    Being the world premiere for such a game could be a big draw for attendees and generate significant buzz, assuming the game is well-received. But GBG has a history of producing popular games.
+    Vampyr: The Mopey and Lycan: The Mangy are two of the most popular games of all time, and they have a large and dedicated fanbase. 
+    So there's a pretty good chance that the new game will be well-received, and hosting the premiere at WMC could be a big win for the con.
+</p>
+{% endif %}
+
+{% if 26003 in game_events %}
+<p>
+    Your Asian attendees are livid at the idea of a larp based on a Chinese folklore monster. They are demanding that the con not host the event.
+</p>
+{% endif %}
+
+{% if 26004 in game_events %}
+<p>
+    Some parents are concerned that the larp will be too scary for their children. 
+    They are demanding that the con not host the event, or at a minimum that it be held after hours and have door staff there to keep children away from it.
+</p>
+{% endif %}
+
+{% if 36006 in game_events %}
+<p>
+    It turns out Galaxy Brain Games' new game generated a lot of buzz on its own! People love the idea of a game based on non-European folklore, and one of the main designers is herself a Chinese game designer with a Masters in folklore. 
+    It seems like a low-level staffer leaked some details about WMC's refusal to host the premiere, which generated a fair bit of negative press for the con. 
+</p>
+{% endif %}
+
+{% if 36007 in game_events %}
+<p>
+    Word gets out that WMC had the chance to host the premiere of Galaxy Brain Games' new game, but refused to do so because of the not-safe-for-children content. 
+    The con gets accused of catering to religious and social conservatives, and some die-hard GBG fans try to get an online petition to boycott WMC going. 
+    It doesn't meaningfully reduce attendance count. But it does generate some of negative press for the con, and it gains a reputation for being a more conservative con than some of its competitors.
+</p>
+{% endif %}
+
+{% if 36005 in game_events %}
+<p>
+    You run the game anyway. There's some minor controversy, but the game is well-received and generates a lot of buzz for the con. 
+    The larp doesn't end up being as scary as some parents feared, and the door staff do a good job of keeping children away from it.
+    It turns out one of the main designers of the game is a Chinese game designer with a Masters in folklore, and the game is praised for its respectful and accurate portrayal of its subject matter.
+    Attendance is above expectations, and the con is a big success.
+</p>
+{% endif %}
+
+<hr>
+
+<p><a href="/admin">Back to Admin</a></p>
+</body>
+</html>

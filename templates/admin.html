@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Character Visibility Admin</h1>
+
+    <form method="POST">
+        <table border="1">
+
+        {% for char in characters %}
+        <tr>
+            <td>{{ char["id"] }}</td>
+            <td>{{ char["scenario"] }}</td>
+            <td>{{ char["name"] }}</td>
+            <td><div>
+                <input type="checkbox" name="character_ids" value="picked_{{ char["id"] }}"
+                    {% if char["chosen"]==1 %}checked{% endif %}>
+            </div></td>
+        </tr>
+        {% endfor %}
+        </table>
+    <button type="submit">Update Database</button>
+    </form>
+    <p><a href="/character">View Character Page</a></p>
+    <p><a href="/reset">Reset the Game</a></p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BidCom Character - Corporate Secretary</title>
+</head>
+<body>
+    <h1>Riley Teller - BidCom Corporate Secretary</h1>
+    <hr>
+
+    {% if 10101 in game_events %}
+    <p> OK! So we've got a group ready for formulate a bid for the World Media Fandom Convention! Now we need to set up our official committee structure! We have three options we can use:
+        <ul>
+            <li><strong>Large, Flat, Open Committee:</strong> This lets anyone who might be able to make small contributions to the bid be part of the committee. But in practice, a small number of people will be doing 90% of the work, and most people won't respond to requests to do anything to help.</li>
+            <li><strong>Small, Centralized Committee:</strong> This is a more traditional approach where a small number of people are selected to be the core committee members. They are responsible for making decisions and coordinating the bid.</li>
+            <li><strong>"Upper" and "Lower" Committee:</strong> Either the best or the worst of both worlds: It includes:
+                <ul><li>a small number of high-level members (the "upper" or "executive" committee)</li> 
+                    <li>a larger number of lower-level members (the "lower" or "general committee")</li></ul> 
+            The upper members make decisions, and while the lower members ratify some of those decisions, this can often lead a large number of lower committee members to resign over seemingly trivial decisions they felt the Executive Committee railroaded through the general committee.</li>
+        </ul></p>
+    <p>
+        You have no personal horse in this race, but need to explain the benefits and drawbacks of each approach to the group, and then facilitate a discussion to help them come to a consensus on which approach to take.
+    </p>
+    <hr>
+    {% endif %}
+
+    {% if 10102 in game_events %}
+    <p>
+        The Committee chose the large, flat, open model. It allows for maximum participation and gives everyone a chance to contribute. We can always delegate tasks to smaller subcommittees if needed.
+    </p>
+    <hr>
+    {% endif %}
+
+    {% if 10103 in game_events %}
+    <p>
+        The Committee chose a General/Executive model. Everyone gets to feel like part of the group, but the executive committee makes all the major decisions.
+    </p>    
+    <hr>
+    {% endif %}
+
+    {% if 10104 in game_events %}
+    <p>
+        The Committee chose the small, central model. If members aren't doing a significant amount of work for the con, they're not members. Everyone's committed to making the event work, and has skin in the game.
+    </p>    
+    <hr>
+    {% endif %}
+
+</body>
+</html>

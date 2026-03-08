@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Descriptions</title>
+</head>
+<body>
+    <h1>Active Characters</h1>
+    {% for char in characters %}
+        <p><strong>{{ char["id"] }}</strong></p>
+    {% endfor %}
+    <hr>
+
+    {% if 10101 in characters %}
+    <p><strong>Alice:</strong> Expert in cryptography and logic. She is currently visible.</p>
+    {% endif %}
+
+    {% if 10103 in characters %}
+    <p><strong>Bob:</strong> A specialist in secure communications and Alice's primary contact.</p>
+    {% endif %}
+
+    {% if 10105 in characters %}
+    <p><strong>Carol:</strong> The third party in the exchange, often managing the infrastructure.</p>
+    {% endif %}
+
+    {% if 20201 in characters %}
+    <p><strong>David:</strong> A quiet observer who documents the interactions of the group.</p>
+    {% endif %}
+
+    {% if 20205 in characters %}
+    <p><strong>Emily:</strong> The newest member, bringing fresh perspectives to the team.</p>
+    {% endif %}
+
+    <hr>
+    <p><a href="/admin">Back to Admin</a></p>
+</body>
+</html>
