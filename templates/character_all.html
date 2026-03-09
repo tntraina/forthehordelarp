@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Characters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .character-list {
+            list-style: none;
+            padding: 0;
+        }
+        .character-item {
+            padding: 12px;
+            border: 1px solid #ddd;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .character-item:hover {
+            background-color: #f0f0f0;
+        }
+        .character-item a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        .no-results {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Characters</h1>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search characters by name...">
+    </div>
+    <ul class="character-list" id="characterList">
+        {% for character in characters %}
+        <li class="character-item" data-name="{{ character.name.lower() }}">
+            <a href="/characters/{{ character.id }}">{{ character.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div id="noResults" class="no-results" style="display: none;">
+        No characters found matching your search.
+    </div>
+
+    <script>
+        const characters = {{ characters | tojson }};
+        const searchInput = document.getElementById('searchInput');
+        const characterList = document.getElementById('characterList');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            let visibleCount = 0;
+
+            characterList.querySelectorAll('li').forEach(item => {
+                const name = item.dataset.name;
+                if (name.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

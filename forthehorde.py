@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, jsonify, render_template, request, redirect, url_for
 import sqlite3
 from flask import g
 
@@ -53,9 +53,11 @@ def character(charid):
     return render_template(filename, game_events=nodelist)
 
 
-@app.route('/con_stats')
+@app.route('/game_stats')
 def constats():
-    return render_template('con_stats.html', stats=GAME_STATS)
+    conn = get_db()
+    stats = conn.execute('SELECT * FROM game_stats').fetchall()
+    return render_template('game_stats.html', stats=stats)
 
 
 @app.route('/reset')
@@ -65,9 +67,15 @@ def reset():
     cur.connection.commit()
     cur.execute('UPDATE game_stats SET current_value = default_value')
     cur.connection.commit()
-    
     return redirect(url_for('admin'))
 
+# Route to get all characters from the database
+@app.route('/character/all', methods=['GET'])
+def get_all_characters():
+    conn = get_db()
+    characters = conn.execute('SELECT * FROM characters').fetchall()
+    conn.close()
+    return render_template('characters.html', characters=jsonify([dict(character) for character in characters]))
 
 @app.route('/queue')
 def get_character_queue():
