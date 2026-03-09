@@ -50,7 +50,7 @@
     <ul class="character-list" id="characterList">
         {% for character in characters %}
         <li class="character-item" data-name="{{ character.name.lower() }}">
-            <a href="/characters/{{ character.id }}">{{ character.name }}</a>
+            <a href="/character/{{ character.id }}">{{ character.name }} - {{ character.description }}</a>
         </li>
         {% endfor %}
     </ul>
