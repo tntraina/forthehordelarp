@@ -6,12 +6,6 @@ app = Flask(__name__)
 
 CHARACTERS = []
 
-GAME_STATS = {
-    "goodwill": 5,
-    "people": 3,
-    "money": 3
-}
-
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect('.\\game_db.sqlite')
@@ -69,9 +63,9 @@ def reset():
     cur = get_db().cursor()
     cur.execute('UPDATE basic_data SET chosen=0')
     cur.connection.commit()
-    GAME_STATS["goodwill"] = 5
-    GAME_STATS["people"] = 3
-    GAME_STATS["money"] = 3
+    cur.execute('UPDATE game_stats SET current_value = default_value')
+    cur.connection.commit()
+    
     return redirect(url_for('admin'))
 
 
